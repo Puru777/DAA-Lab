@@ -1,0 +1,73 @@
+#include<stdio.h>
+#include<stdlib.h>
+ 
+int linear(int a[], int, int);
+ 
+void main()
+ 
+{
+        int n, i, a[10], key, pos = 0;
+ 
+        printf("enter the no. of elements\n");
+ 
+        scanf("%d",&n);
+ 
+        printf("enter the array elements\n");
+ 
+        for(i=0;i<n;i++)
+        {
+                scanf("%d",&a[i]);
+        }
+ 
+        printf("enter the elements to be searched\n");
+ 
+        scanf("%d",&key);
+ 
+        pos = linear(a, n, key);
+ 
+        if(pos != 0)
+        {
+                printf("element %d is found at %dth position",key, pos);
+        }
+ 
+        else
+        {
+                printf("element not found\n");
+        }
+ 
+}
+ 
+int linear(int a[], int n, int key)
+ 
+{
+        if(n>=0)
+        {
+                if(a[n-1] == key)
+                {
+                        return n;
+                }
+ 
+                else
+                {
+                        return linear(a, n-1, key);
+                }
+ 
+                n--;
+        }
+}
+
+Output
+          enter the no. of elements
+          5
+
+          enter the array elements
+          1
+          4
+          7
+          5
+          2
+
+          enter the elements to be searched
+          2
+
+          element 2 is found at 5th position
