@@ -1,0 +1,58 @@
+#include<stdio.h>
+#include<conio.h>
+
+#define MAX_SIZE 5
+
+int main() {
+    int arr_sort[MAX_SIZE], i, j, a, t, p;
+
+    printf("Simple Selection Sort Example - Array\n");
+    printf("\nEnter %d Elements for Sorting\n", MAX_SIZE);
+    for (i = 0; i < MAX_SIZE; i++)
+        scanf("%d", &arr_sort[i]);
+
+    printf("\nYour Data   :");
+    for (i = 0; i < MAX_SIZE; i++) {
+        printf("\t%d", arr_sort[i]);
+    }
+
+    for (i = 0; i < MAX_SIZE; i++) {
+        p = i;
+        for (j = i; j < MAX_SIZE; j++) {
+            if (arr_sort[p] > arr_sort[j])
+                p = j;
+        }
+
+        if (p != 1) {
+            t = arr_sort[i];
+            arr_sort[i] = arr_sort[p];
+            arr_sort[p] = t;
+        }
+        printf("\nIteration %d : ", i);
+        for (a = 0; a < MAX_SIZE; a++) {
+            printf("\t%d", arr_sort[a]);
+        }
+    }
+
+    printf("\n\nSorted Data :");
+    for (i = 0; i < MAX_SIZE; i++) {
+        printf("\t%d", arr_sort[i]);
+    }
+}
+
+Output:
+Enter 5 Elements for Sorting
+123
+45
+32
+1
+12
+
+Your Data   :   123     45      32      1       12
+Iteration 0 :   1       45      32      123     12
+Iteration 1 :   1       12      32      123     45
+Iteration 2 :   1       12      32      123     45
+Iteration 3 :   1       12      32      45      123
+Iteration 4 :   1       12      32      45      123
+
+Sorted Data :   1       12      32      45      123
